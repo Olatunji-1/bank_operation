@@ -22,9 +22,9 @@ def init():
     elif have_account == 2:
         
         register()
-    else:
-        print('You selected an invalid option')
-        init()
+    
+    print('You selected an invalid option')
+    init()
 
 def login():
     print('*************** Login ***************')
@@ -48,15 +48,14 @@ def login():
                     login()
 
                 
-        else:
-            print('Invalid account number')
-            print('================  ========== = ==========  ===================')
-            forgot_account_number = int(input('Did you forget your account number?  1(yes)  2(no)\n'))
-            if forgot_account_number == 1:
-                retrieve_account_number()
+        print('Invalid account number')
+        print('================  ========== = ==========  ===================')
+        forgot_account_number = int(input('Did you forget your account number?  1(yes)  2(no)\n'))
+        if forgot_account_number == 1:
+            retrieve_account_number()
 
-            else:
-                login()
+        else:
+            login()
                     
                         
 
@@ -100,33 +99,22 @@ def bank_operation(user):
 
     selected_option = int(input("What would you like to do? \n (1) Deposit  (2) Withdrawal  (3) Check Balance  (4) Log Complaint   (5) Logout  (6) Exit\n"))
 
-    if selected_option == 1:
-        
-        deposit_operation(user)
+    if selected_option == 1: deposit_operation(user)
 
-    elif selected_option == 2:
-        
-        withdrawal_option(user)
+    elif selected_option == 2:  withdrawal_option(user)
 
-    elif selected_option == 3:
-        
-        check_balance(user)
+    elif selected_option == 3:   check_balance(user)
 
-    elif selected_option == 4:
-
-        log_complaint()
+    elif selected_option == 4:     log_complaint()
     
-    elif selected_option == 5:
-
-        logout()
+    elif selected_option == 5:      logout()
 
     elif selected_option == 6:
         print('Thank you for banking with us')
         exit()
 
-    else:
-        print('Invalid Selection')
-        bank_operation(user)
+    print('Invalid Selection')
+    bank_operation(user)
 
 def deposit_operation(user):
     balance = int(user["Balance"])
@@ -143,9 +131,9 @@ def deposit_operation(user):
     another_transaction = int(input('\n Do you want to perform another traansaction?  (1) Yes    (2) No\n'))
     if another_transaction == 1:
         bank_operation(user)
-    else:
-        print('Thank you for banking with us')
-        exit()
+        
+    print('Thank you for banking with us')
+    exit()
 
 
 def withdrawal_option(user):
@@ -162,10 +150,9 @@ def withdrawal_option(user):
     another_transaction = int(input('\n Do you want to perform another transaction?  (1) Yes    (2) No\n'))
     if another_transaction == 1:
         bank_operation(user)
-    else:
-        print('Thank you for banking with us')
-        exit()
-    pass
+    
+    print('Thank you for banking with us')
+    exit()
 
 def check_balance(user):
     balance = user["Balance"]
@@ -173,22 +160,15 @@ def check_balance(user):
 
     print('================  ========== = ==========  ===================')
 
-
     # asking if the user wants to perform another transaction
     another_transaction = int(input('\n Do you want to perform another transaction?  (1) Yes    (2) No\n'))
     if another_transaction == 1:
         bank_operation(user)
-    else:
-        print('Thank you for banking with us')
-        exit()
-    pass
 
-
-
-
-def generate_account_number():
+    print('Thank you for banking with us')
+    exit()
     
-    return random.randrange(1111111111, 9999999999)
+def generate_account_number(): return random.randrange(1111111111, 9999999999)
 
 def password():
     # password_match = False
@@ -198,9 +178,9 @@ def password():
     if confirm_password == new_password:
         # password_match == True
         return new_password
-    else:
-        print('Passwords don\'t match')
-        password()
+    
+    print('Passwords don\'t match')
+    password()
 
     
 
@@ -235,17 +215,11 @@ def log_complaint(user):
     another_transaction = int(input('\n Do you want to perform another traansaction?  (1) Yes    (2) No\n'))
     if another_transaction == 1:
         bank_operation(user)
-    else:
-        exit()
-    pass
+    exit()
 
-def update_info(user):
-    # will be updated later
-    print('Update data')
-    pass
+def update_info(user):   print('Update data')
 
-def logout():
-    login()
+def logout():  login()
 
 def update_db():
     with open("database.json", "w") as dbs:
